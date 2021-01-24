@@ -23,7 +23,6 @@ RECAPTCHA_SECRET_KEY = config('RECAPTCHA_SECRET_KEY')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_05bwoy4!$b!ty#o!x2t9ud@%cud&wo1(r@8pi1_!$5@$59v1l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config('DEBUG', cast=bool)
