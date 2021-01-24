@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<form method='POST'> {% csrf_token %}
+
+{{ form.as_p}}
+<p>This site is protected by reCAPTCHA and the Google
+                <a href="https://policies.google.com/terms">Terms and Conditions</a> apply.
+            </p>
+<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+<input type='submit' value='Save' />
+</form>
+<script>
+
+     grecaptcha.ready(function() {
+       grecaptcha.execute('6LdIA9oZAAAAABHTz35GYAu0-eG3vkQccalG1jvJ', {action: 'form'}).then(function(token) {
+         console.log(token);
+         document.getElementById('g-recaptcha-response').value=token;
+         
+           // Add your logic to submit to your backend server here.
+       });
+     });
+
+</script>
+
+
+
+{% endblock %}
+</html>

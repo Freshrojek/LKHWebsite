@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src='https://www.google.com/recaptcha/api.js?render=6LdIA9oZAAAAABHTz35GYAu0-eG3vkQccalG1jvJ'></script>
+  </head>
+ <body>
+
+    {% block content %}
+    <title>Contact</title>
+    <script>
+/*global grecaptcha*/
+grecaptcha.ready(function() {
+    grecaptcha.execute('site_key', {action: "/contact/"}).then(function(token) {
+      document.getElementById('g-recaptcha-response').value = token;
+    });
+});
+</script>
+<div style="margin:80px">
+		<h1>Contact</h1>
+		<h4>Contact us directly if you have any questions</h4>
+		<p>
+			Please write your name, email address and a message below if you have any questions.
+			One of our staff members will be happy to contact you directly and answer your questions as soon as possible.
+		</p>
+		<form method="post">
+        {% csrf_token %}
+            {{form.as_p}}
+            <!--add this reCAPTCHA input-->
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+  </body>
+</html>
