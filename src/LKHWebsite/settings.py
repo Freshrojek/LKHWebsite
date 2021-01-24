@@ -26,9 +26,10 @@ RECAPTCHA_SECRET_KEY = config('RECAPTCHA_SECRET_KEY')
 SECRET_KEY = '_05bwoy4!$b!ty#o!x2t9ud@%cud&wo1(r@8pi1_!$5@$59v1l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
-
+# DEBUG = config('DEBUG', cast=bool)
+DEBUG = True
 ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -58,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'firstDjango.urls'
+ROOT_URLCONF = 'LKHWebsite.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'firstDjango.wsgi.application'
+WSGI_APPLICATION = 'LKHWebsite.wsgi.application'
 
 
 # Database
@@ -127,5 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR,'/static/')
+STATICFILES_DIRS = (
+  os.path.join(BASE_DIR, 'static/'),
+)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

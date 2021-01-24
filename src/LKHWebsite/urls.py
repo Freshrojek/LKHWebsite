@@ -1,4 +1,4 @@
-"""firstDjango URL Configuration
+"""LKHWebsite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -18,12 +18,15 @@ from django.urls import path
 
 from pages.views import home_view, contact_view, about_view
 from products.views import product_detail_view, product_create_view, contact
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
 
     path('', home_view, name='home'),
     path("contact/", contact, name="contact"),
-    path('about/', about_view),
+    path('about/', about_view, name="about"),
     path('product/', product_detail_view),
     path('create/', product_create_view),
     path('admin/', admin.site.urls),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
