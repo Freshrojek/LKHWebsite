@@ -38,47 +38,29 @@ def product_create_view(request):
 
 
 
-    context = {
-        'form': form,
-        'site_key': settings.RECAPTCHA_SITE_KEY,
-        'secret_key': settings.RECAPTCHA_SECRET_KEY,
-    }
-    # data = {
-    # 'secret': settings.RECAPTCHA_SECRET_KEY,
-    # 'response': request.POST.get('g-recaptcha_response'),
-    #
+    # context = {
+    #     'form': form,
+    #     'site_key': settings.RECAPTCHA_SITE_KEY,
+    #     'secret_key': settings.RECAPTCHA_SECRET_KEY,
     # }
-    # data = urllib.parse.urlencode(data).encode()
     #
-    # resp = request.POST('https://www.google.com/recaptcha/api/siteverify', data=data )
-    # result_json = resp.json()
-    # print(result_json)
-    # if not result_json.GET.get('success'):
-    #     return render(request, 'product_create_view.html', {'is_robot': True})
-    # return render(request, "products/product_create.html", context)
-    recaptcha_response = request.POST.get('g-recaptcha-response')
+    # recaptcha_response = request.POST.get('g-recaptcha-response')
+    #
+    # url = 'https://www.google.com/recaptcha/api/siteverify'
+    # payload = {
+    #     'secret': settings.RECAPTCHA_SECRET_KEY,
+    #     'response': recaptcha_response
+    # }
+    # data = urllib.parse.urlencode(payload).encode()
+    # req = urllib.request.Request(url, data=data)
+    #
+    # # verify the token submitted with the form is valid
+    # response = urllib.request.urlopen(req)
+    # print(response)
+    #
+    # result = json.loads(response.read().decode())
+    # print(result)
 
-    url = 'https://www.google.com/recaptcha/api/siteverify'
-    payload = {
-        'secret': settings.RECAPTCHA_SECRET_KEY,
-        'response': recaptcha_response
-    }
-    data = urllib.parse.urlencode(payload).encode()
-    req = urllib.request.Request(url, data=data)
-
-    # verify the token submitted with the form is valid
-    response = urllib.request.urlopen(req)
-    print(response)
-
-    result = json.loads(response.read().decode())
-    print(result)
-    # result will be a dict containing 'contact' and 'action'.
-    # it is important to verify both
-
-    # if (not result['contact']) or (not result['action'] == ''):  # make sure action matches the one from your template
-    #     messages.error(self.request, 'Invalid reCAPTCHA. Please try again.')
-    #     return super().form_invalid(form)
-    # return render(request, "products/product_create.html", context)
 
 def product_detail_view(request):
     obj = Product.objects.get(id=1)
@@ -91,49 +73,49 @@ def product_detail_view(request):
     }
     return render(request, "products/product_detail.html", context)
 
-def form_valid(self, form):
-    # get the token submitted in the form
-    recaptcha_response = self.request.POST.get('g-recaptcha-response')
-    url = 'https://www.google.com/recaptcha/api/siteverify'
-    payload = {
-        'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-        'response': recaptcha_response
-    }
-    data = urllib.parse.urlencode(payload).encode()
-    req = urllib.request.Request(url, data=data)
+# def form_valid(self, form):
+#     # get the token submitted in the form
+#     recaptcha_response = self.request.POST.get('g-recaptcha-response')
+#     url = 'https://www.google.com/recaptcha/api/siteverify'
+#     payload = {
+#         'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+#         'response': recaptcha_response
+#     }
+#     data = urllib.parse.urlencode(payload).encode()
+#     req = urllib.request.Request(url, data=data)
+#
+#     # verify the token submitted with the form is valid
+#     response = urllib.request.urlopen(req)
+#     result = json.loads(response.read().decode())
+#
+#     # result will be a dict containing 'contact' and 'action'.
+#     # it is important to verify both
+#
+#     if (not result['contact']) or (not result['action'] == ''):  # make sure action matches the one from your template
+#         messages.error(self.request, 'Invalid reCAPTCHA. Please try again.')
+#         return super().form_invalid(form)
 
-    # verify the token submitted with the form is valid
-    response = urllib.request.urlopen(req)
-    result = json.loads(response.read().decode())
-
-    # result will be a dict containing 'contact' and 'action'.
-    # it is important to verify both
-
-    if (not result['contact']) or (not result['action'] == ''):  # make sure action matches the one from your template
-        messages.error(self.request, 'Invalid reCAPTCHA. Please try again.')
-        return super().form_invalid(form)
-
-def form_valid(self, form):
-    # get the token submitted in the form
-    recaptcha_response = self.request.POST.get('g-recaptcha-response')
-    url = 'https://www.google.com/recaptcha/api/siteverify'
-    payload = {
-        'secret': settings.RECAPTCHA_SECRET_KEY,
-        'response': recaptcha_response
-    }
-    data = urllib.parse.urlencode(payload).encode()
-    req = urllib.request.Request(url, data=data)
-
-    # verify the token submitted with the form is valid
-    response = urllib.request.urlopen(req)
-    result = json.loads(response.read().decode())
-
-    # result will be a dict containing 'contact' and 'action'.
-    # it is important to verify both
-
-    if (not result['contact']) or (not result['action'] == ''):  # make sure action matches the one from your template
-        messages.error(self.request, 'Invalid reCAPTCHA. Please try again.')
-        return super().form_invalid(form)
+# def form_valid(self, form):
+#     # get the token submitted in the form
+#     recaptcha_response = self.request.POST.get('g-recaptcha-response')
+#     url = 'https://www.google.com/recaptcha/api/siteverify'
+#     payload = {
+#         'secret': settings.RECAPTCHA_SECRET_KEY,
+#         'response': recaptcha_response
+#     }
+#     data = urllib.parse.urlencode(payload).encode()
+#     req = urllib.request.Request(url, data=data)
+#
+#     # verify the token submitted with the form is valid
+#     response = urllib.request.urlopen(req)
+#     result = json.loads(response.read().decode())
+#
+#     # result will be a dict containing 'contact' and 'action'.
+#     # it is important to verify both
+#
+#     if (not result['contact']) or (not result['action'] == ''):  # make sure action matches the one from your template
+#         messages.error(self.request, 'Invalid reCAPTCHA. Please try again.')
+#         return super().form_invalid(form)
 
 
 def contact(request):
@@ -157,4 +139,4 @@ def contact(request):
             #     return HttpResponse('Invalid Header found.')
             # return redirect("about.html")
     form= ContactForm()
-    return render(request, "contact.html", {'form':form, 'public_key':settings.RECAPTCHA_SITE_KEY})
+    return render(request, "contact.html", {'form':form})
