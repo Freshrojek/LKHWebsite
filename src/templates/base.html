@@ -2,31 +2,25 @@
 <html>
 <head>
    <meta charset="UTF-8" />
-    {% load static %}
-<!--   <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">-->
-<!--       <link rel="stylesheet" href="static/css/stylesheet.css">-->
+
+
 
 <!--  <script src="https://www.google.com/recaptcha/api.js?render=6LdIA9oZAAAAABHTz35GYAu0-eG3vkQccalG1jvJ"></script>-->
   <title>Home Page</title>
-  <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+
 
   </head>
 <body>
-<!--    <div class="guide">-->
-        <ul>
-          <li><a class="active" href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a>
-          <li><a href="{% url 'about' %}">About</a>
-        </ul>
-<!--        <a href="Home.html">Home</a>-->
-<!--        <a href = "About.html">About</a>-->
-<!--        <a href="Technical Contribution.html">Technical Contribution</a>-->
-<!--        <a href="Relevancy Today.html">Relevancy Today</a>-->
 
 
 
-<!--      </div>-->
-<!--  {% include 'navbar.html' %}-->
+
+  {% include 'navbar.html' %}
+
+
+
+
+
   {% block content %}
   replace me
   {% endblock %}
