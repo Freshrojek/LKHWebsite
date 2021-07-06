@@ -1,12 +1,15 @@
-version-'3.7'
+version: '3.7'
 
 services:
   app:
     build:
-      context: LKHWebsite
+      context: .
     ports:
       - "8000:8000"
     volumes:
       - ./LKHWebsite:/LKHWebsite
-      -
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=1
+
 
