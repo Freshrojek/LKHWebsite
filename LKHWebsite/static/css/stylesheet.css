@@ -1,6 +1,8 @@
+.navbar-inverse .navbar-nav > li > a {
+    color: #404040;
+}
 
 .hoverable{
-
   display:inline-block;
   backface-visibility: hidden;
   vertical-align: middle;
@@ -84,7 +86,7 @@
 @media (min-width: 768px) {
   .navbar{
     border: 0;
-    color;
+    color: black;
     text-align: center !important;
     float: none;
     display: inline-block;
