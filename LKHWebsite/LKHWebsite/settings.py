@@ -34,10 +34,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # DEBUG = config('DEBUG', cast=bool)
 # DEBUG = os.environ.get("DEBUG")
 #SECRET_KEY = env("SECRET_KEY")
-SECRET_KEY = os.environ.get('SECRET_KEY', 'changeme')
 
-# DEBUG = env("DEBUG")
-DEBUG = bool(int(os.environ.get('DEBUG', 0)))
+SECRET_KEY = env("SECRET_KEY")
+
+DEBUG = env("DEBUG")
 
 # ALLOWED_HOSTS = [env("ALLOWED_HOSTS", default="localhost"), "127.0.0.1"]
 ALLOWED_HOSTS = []
@@ -144,6 +144,7 @@ USE_TZ = True
 STATIC_URL = '/static/static/'
 MEDIA_URL = '/static/media/'
 # STATIC_ROOT = os.path.join(BASE_DIR,'/static/')
+
 STATIC_ROOT = '/vol/web/static'
 MEDIA_ROOT = '/vol/web/media'
 
