@@ -19,3 +19,6 @@ def about_view(request, *args, **kwargs):
     }
 
     return render(request, "about.html", my_context)
+
+def vue_test(request):
+    return render(request, 'vueTest.html')
