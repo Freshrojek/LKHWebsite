@@ -22,3 +22,9 @@ def about_view(request, *args, **kwargs):
 
 def vue_test(request):
     return render(request, 'vueTest.html')
+
+def blogView(request):
+    return render(request, "home.html", {})
+
+# def vueT_test(request):
+#     return render(request, 'vuetifyTest.html')
