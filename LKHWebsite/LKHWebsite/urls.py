@@ -15,22 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-from pages.views import blogView, home_view, contact_view, about_view, vue_test
-from products.views import product_detail_view, product_create_view, contact
+from pages import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-
-    path('home/', home_view, name='home'),
-    path("contact/", contact_view, name="contact"),
-    path('about/', about_view, name="about"),
-    path('product/', product_detail_view),
-    path('create/', product_create_view),
-    path('test/', vue_test),
-    # path('api/')
-    # path('vuetifyTest/', vueT_test),
-    path('admin/', admin.site.urls),
-    path(r'^blogs/$', blogView),
+  path('', views.frontend),
+  path('article/', views.frontend),
+  path('author/', views.frontend),
+  path('article/<slug:slug>/', views.frontend),
+  path('author/<slug:slug>/', views.frontend),
+  path('home/', views.home_view, name='home'),
+  path("contact/", views.contact_view, name="contact"),
+  path('about/', views.about_view, name="about"),
+  # path('product/', product_detail_view),
+  path('test/', views.vue_test),
+  # path('api/')
+  # path('vuetifyTest/', vueT_test),
+  path('admin/', admin.site.urls),
+  path(r'^blogs/$', views.blogView),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

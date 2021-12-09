@@ -35,7 +35,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # DEBUG = os.environ.get("DEBUG")
 #SECRET_KEY = env("SECRET_KEY")
 
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = "vf)$ki91756fb7et*5wwzqc!fjm+t-f_o(pw@8_as_854d4_jq"
+
+# SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = env("DEBUG")
 
@@ -60,7 +62,7 @@ INSTALLED_APPS = [
     # own
 
     'pages',
-    'products',
+    'articles',
 ]
 
 MIDDLEWARE = [

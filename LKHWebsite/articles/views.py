@@ -71,7 +71,7 @@ def product_detail_view(request):
     context = {
         'object': obj,
     }
-    return render(request, "products/product_detail.html", context)
+    return render(request, "articles/product_detail.html", context)
 
 # def form_valid(self, form):
 #     # get the token submitted in the form

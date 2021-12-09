@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from articles.models import Article, Author
 
 
 # Create your views here.
@@ -25,6 +26,17 @@ def vue_test(request):
 
 def blogView(request):
     return render(request, "home.html", {})
+def frontend(request, slug=None):
+    articles = Article.objects.all()
+    authors = Author.objects.all()
+
+    data = {
+        'articles': articles,
+        'authors': authors,
+    }
+
+    return render(request, 'blogTemplate.html', data)
+
 
 # def vueT_test(request):
 #     return render(request, 'vuetifyTest.html')

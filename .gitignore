@@ -1,6 +1,6 @@
 
-LKHWebsite/.env
-LKHWebsite/LKHWebsite/.env
+.env
+.env
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,pycharm,django,vuejs
