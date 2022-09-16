@@ -1,0 +1,11 @@
+.content{
+  background-color: rgba(202, 219, 207,1);
+  text-align: left;
+  margin-right: 500px;
+  margin-left: 500px;
+}
+.page-title {
+  text-align: center;
+  opacity: .75 !important;
+  color: black;
+}
